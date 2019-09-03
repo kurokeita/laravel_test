@@ -116,6 +116,17 @@ Route::group(['prefix' => 'test'], function() {
         });
         Route::get('after/{num}', function($num) {
             return ($num + 5);
-        })->middleware('afterMiddleware');
+        })->middleware('afterMiddleware');        
+        Route::get('resources/count', function() {
+            return App\users::all()->count();
+        });
+        // Route::get('resources', [
+        //     'as' => 'sortAndOrderQuery',
+        //     'uses' => 'usersController@list'
+        // ]);
+        Route::resources(['resources' => 'usersController']);
+        Route::get('or', function() {
+            return view('test');
+        });
     });
 });

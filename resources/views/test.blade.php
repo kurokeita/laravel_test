@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     This is test page <br>
-    {{ $id }}
-    {{ $name }}
+    {{ $id ?? '' }}
+    {{ $name ?? '' }}
     {!! $test ?? '' !!}
 @endsection
